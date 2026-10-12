@@ -1271,12 +1271,45 @@
       display: block;
     }
 
-    .screenshot-slide svg {
+    .screenshot-slide svg,
+    .screenshot-slide img,
+    .portal-screenshot-img {
       width: 100%;
       max-width: 100%;
       height: auto;
       display: block;
       cursor: zoom-in;
+      object-fit: contain;
+    }
+
+    .screenshot-hover-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(7, 11, 16, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--border-cyan);
+      color: var(--neon-cyan);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      pointer-events: none;
+      opacity: 0.85;
+      transition: all 0.2s ease;
+      z-index: 5;
+    }
+
+    .screenshot-slide:hover .screenshot-hover-badge {
+      opacity: 1;
+      border-color: var(--neon-lime);
+      color: var(--neon-lime);
+      box-shadow: 0 0 15px var(--neon-lime-glow);
     }
 
     @keyframes fadeInSlide {
@@ -1318,15 +1351,18 @@
       position: relative;
     }
 
-    .thumb-preview-wrap svg {
+    .thumb-preview-wrap svg,
+    .thumb-preview-wrap img,
+    .thumb-preview-img {
       width: 100%;
-      max-width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
       transition: transform 0.3s ease;
     }
 
-    .screenshot-thumb-card:hover .thumb-preview-wrap svg {
+    .screenshot-thumb-card:hover .thumb-preview-wrap svg,
+    .screenshot-thumb-card:hover .thumb-preview-wrap img {
       transform: scale(1.05);
     }
 
@@ -1418,6 +1454,7 @@
       transform: translateY(-2px);
     }
 
+    
     /* ---------------------------------------------------
        SECTION 2: TELEGRAM BOTS (RAONE & DEADPOOL)
        --------------------------------------------------- */
@@ -1911,10 +1948,15 @@
       background: #05080c;
     }
 
-    .lightbox-body svg {
+    .lightbox-body svg,
+    .lightbox-body img {
       width: 100%;
       height: auto;
+      max-height: 82vh;
+      object-fit: contain;
       display: block;
+      margin: 0 auto;
+      border-radius: 8px;
     }
 
     /* ===================================================
@@ -2177,6 +2219,49 @@
       .character-wrapper, .orbit-ring, .crystal, .hud-panel {
         animation: none !important;
       }
+    }
+
+    /* Fast Print Portal Section Custom Styles */
+    .fast-upload-dropzone {
+      width: 100%;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(12, 19, 31, 0.75);
+      border: 2px dashed rgba(0, 234, 255, 0.35);
+      border-radius: 12px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin: 0.5rem;
+    }
+    .fast-upload-dropzone:hover,
+    .fast-upload-dropzone.dragover {
+      border-color: var(--neon-cyan);
+      background: rgba(0, 234, 255, 0.08);
+      box-shadow: 0 0 25px rgba(0, 234, 255, 0.15);
+    }
+    .btn-dz-select {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.25rem;
+      background: rgba(0, 234, 255, 0.12);
+      border: 1px solid var(--neon-cyan);
+      border-radius: 8px;
+      color: var(--neon-cyan);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: all 0.2s ease;
+    }
+    .fast-upload-dropzone:hover .btn-dz-select {
+      background: var(--neon-cyan);
+      color: #050811;
+      box-shadow: 0 0 15px rgba(0, 234, 255, 0.4);
     }
   </style>
 </head>
@@ -2530,7 +2615,7 @@
 
     <!-- ==============================================
          PROJECTS SECTION — 3 CORE BLOCKS
-         1.. Create Your Oun printer portal ("Dark Print Portal" - shivaprint.xyz)
+         1.. Create Your Own print portal ("Dark Print Portal" - shivaprint.xyz)
          2.. Telegram Bots (Raone & Deadpool)
          3.. Coming Soon (Working On Streaming Platform)
          ============================================== -->
@@ -2559,10 +2644,10 @@
             <div class="project-section-head">
               <div>
                 <div class="ps-title">
-                  <span>01. Create Your Own printer portal</span>
+                  <span>01. Create Your Own print portal</span>
                 </div>
                 <p class="ps-subtitle">
-                  Complete printing &amp; seva portal system with multi-tier auth, wallet balance engine, and document processing pipelines.
+                  High-speed custom print &amp; document seva portal with multi-tier member access, real-time wallet ledger, automated government card pipeline, and instantaneous job dispatch.
                 </p>
               </div>
               <div class="ps-badge ps-badge-lime">
@@ -2574,13 +2659,13 @@
             <!-- Screenshot Tab Switcher -->
             <div class="portal-tabs-row">
               <button class="portal-tab-btn active" id="tab-btn-1" onclick="switchScreenshot(1)">
-                <span>&#128274; 01. Login Auth</span>
+                <span>⚡ 01. Login Portal (SHIVA PRINT)</span>
               </button>
               <button class="portal-tab-btn" id="tab-btn-2" onclick="switchScreenshot(2)">
-                <span>&#128179; 02. Dashboard (Wallet: &#8377;9,980)</span>
+                <span>📊 02. Live Admin Dashboard</span>
               </button>
               <button class="portal-tab-btn" id="tab-btn-3" onclick="switchScreenshot(3)">
-                <span>&#128196; 03. Document Seva Hub</span>
+                <span>📄 03. Document Print Services Hub</span>
               </button>
             </div>
 
@@ -2595,7 +2680,7 @@
                   </div>
                   <div class="browser-url-pill">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    <span id="browser-url-text">https://shivaprint.xyz/login</span>
+                    <span id="browser-url-text">https://shivaprint.xyz/login (SHIVA PRINT Portal)</span>
                   </div>
                 </div>
 
@@ -2609,7 +2694,7 @@
 
               <!-- Active Screenshot Slides Container -->
               <div class="portal-viewer-container" id="portal-screenshot-viewer">
-                <!-- Slide 1 -->
+                <!-- Slide 1: Login Portal -->
                 <div class="screenshot-slide active" id="screenshot-slide-1" onclick="openLightbox()">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 620" width="1280" height="620" style="background: linear-gradient(135deg, #eef1fc 0%, #e6ebff 50%, #d8e1fa 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
   <!-- Header -->
@@ -2674,9 +2759,13 @@
     </linearGradient>
   </defs>
 </svg>
+                  <div class="screenshot-hover-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>Click to Zoom &bull; Fullscreen</span>
+                  </div>
                 </div>
 
-                <!-- Slide 2 -->
+                <!-- Slide 2: Dashboard -->
                 <div class="screenshot-slide" id="screenshot-slide-2" onclick="openLightbox()">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 620" width="1280" height="620" style="background: #0d121f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
   <!-- Top Bar -->
@@ -2859,9 +2948,13 @@
     </linearGradient>
   </defs>
 </svg>
+                  <div class="screenshot-hover-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>Click to Zoom &bull; Fullscreen</span>
+                  </div>
                 </div>
 
-                <!-- Slide 3 -->
+                <!-- Slide 3: Seva Hub -->
                 <div class="screenshot-slide" id="screenshot-slide-3" onclick="openLightbox()">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 620" width="1280" height="620" style="background: #0d121f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
   <!-- Top Bar -->
@@ -3044,14 +3137,22 @@
     </linearGradient>
   </defs>
 </svg>
+                  <div class="screenshot-hover-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>Click to Zoom &bull; Fullscreen</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- 3-Cards Gallery Preview Row -->
+            <!-- 3 Screenshot Preview Cards -->
             <div class="screenshots-gallery-grid">
-              <!-- Card 1 -->
+              <!-- Thumb 1 -->
               <div class="screenshot-thumb-card active" id="thumb-card-1" onclick="switchScreenshot(1)">
+                <div class="thumb-header" style="display:flex; justify-content:space-between; align-items:center; padding: 0.6rem 0.9rem; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(0,234,255,0.1);">
+                  <span class="thumb-num" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--neon-lime); font-weight: 700;">#01</span>
+                  <span class="thumb-tag" style="font-family: var(--font-mono); font-size: 0.68rem; color: #a0aec0; letter-spacing: 0.05em;">LOGIN PORTAL</span>
+                </div>
                 <div class="thumb-preview-wrap">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 620" width="1280" height="620" style="background: linear-gradient(135deg, #eef1fc 0%, #e6ebff 50%, #d8e1fa 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
   <!-- Header -->
@@ -3118,13 +3219,17 @@
 </svg>
                 </div>
                 <div class="thumb-info">
-                  <span class="thumb-title">01. Portal Login Screen</span>
-                  <span class="thumb-sub">User Authentication &bull; Secure PIN Login</span>
+                  <span class="thumb-title">SHIVA PRINT Login Portal</span>
+                  <span class="thumb-sub">Member Sign In &bull; Fast Authentication</span>
                 </div>
               </div>
 
-              <!-- Card 2 -->
+              <!-- Thumb 2 -->
               <div class="screenshot-thumb-card" id="thumb-card-2" onclick="switchScreenshot(2)">
+                <div class="thumb-header" style="display:flex; justify-content:space-between; align-items:center; padding: 0.6rem 0.9rem; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(0,234,255,0.1);">
+                  <span class="thumb-num" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--neon-lime); font-weight: 700;">#02</span>
+                  <span class="thumb-tag" style="font-family: var(--font-mono); font-size: 0.68rem; color: #a0aec0; letter-spacing: 0.05em;">ADMIN DASHBOARD</span>
+                </div>
                 <div class="thumb-preview-wrap">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 620" width="1280" height="620" style="background: #0d121f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
   <!-- Top Bar -->
@@ -3309,13 +3414,17 @@
 </svg>
                 </div>
                 <div class="thumb-info">
-                  <span class="thumb-title">02. Admin Dashboard Overview</span>
-                  <span class="thumb-sub">Wallet Engine (&#8377;9,980.00) &bull; Seva Shortcuts</span>
+                  <span class="thumb-title">Live Admin Dashboard</span>
+                  <span class="thumb-sub">Wallet Ledger &bull; Member Management</span>
                 </div>
               </div>
 
-              <!-- Card 3 -->
+              <!-- Thumb 3 -->
               <div class="screenshot-thumb-card" id="thumb-card-3" onclick="switchScreenshot(3)">
+                <div class="thumb-header" style="display:flex; justify-content:space-between; align-items:center; padding: 0.6rem 0.9rem; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(0,234,255,0.1);">
+                  <span class="thumb-num" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--neon-lime); font-weight: 700;">#03</span>
+                  <span class="thumb-tag" style="font-family: var(--font-mono); font-size: 0.68rem; color: #a0aec0; letter-spacing: 0.05em;">SERVICES HUB</span>
+                </div>
                 <div class="thumb-preview-wrap">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 620" width="1280" height="620" style="background: #0d121f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
   <!-- Top Bar -->
@@ -3500,8 +3609,8 @@
 </svg>
                 </div>
                 <div class="thumb-info">
-                  <span class="thumb-title">03. Document Seva &amp; Print Hub</span>
-                  <span class="thumb-sub">Aadhaar PVC &bull; Ration &bull; e-Shram Apply</span>
+                  <span class="thumb-title">Document Print Services Hub</span>
+                  <span class="thumb-sub">National ID &bull; Passport &bull; DL &bull; Visa</span>
                 </div>
               </div>
             </div>
@@ -3510,7 +3619,7 @@
             <div class="portal-actions-bar">
               <div>
                 <span style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-muted); display: block;">
-                  Portal Name: <strong style="color: var(--neon-lime);">Dark Print Portal</strong> (Platform: SHIVA PRINT)
+                  Portal Name: <strong style="color: var(--neon-lime);">Dark Print Portal</strong> (Platform: SHIVA PRINT &bull; shivaprint.xyz)
                 </span>
                 <span style="font-family: var(--font-mono); font-size: 0.78rem; color: #7f93aa;">
                   Live URL: <a href="https://shivaprint.xyz" target="_blank" rel="noopener noreferrer" style="color: var(--neon-cyan); text-decoration: underline;">https://shivaprint.xyz</a>
@@ -3525,12 +3634,161 @@
                 </a>
                 <!-- Order / Contact Button -->
                 <a href="https://t.me/looterekrish" target="_blank" rel="noopener noreferrer" class="btn-create-portal">
-                  <span>Create Your Own Portal</span>
+                  <span>Create Your Own Print Portal</span>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </div>
             </div>
           </div>
+
+          <!-- ==============================================
+               SECTION 1B: FAST PRINT PORTAL
+               Requested by User: "Fast Print Portal" section inside "Your Own Print Portal"
+               ============================================== -->
+          <div class="project-section-block" id="fast-print-portal-section" style="margin-top: 2rem;">
+            <div class="project-section-head">
+              <div>
+                <div class="ps-title">
+                  <span>Fast Print Portal</span>
+                </div>
+                <p class="ps-subtitle">
+                  High-velocity print &amp; document seva ecosystem engineered for high-concurrency member dispatches, real-time wallet transactions, automated government card pipelines, and lightning-fast job processing.
+                </p>
+              </div>
+              <div class="ps-badge ps-badge-cyan">
+                <span class="pulse-dot-cyan"></span>
+                <span>FAST PRINT PORTAL</span>
+              </div>
+            </div>
+
+            <!-- Screenshot Tab Switcher for Fast Print Portal -->
+            <div class="portal-tabs-row" id="fast-portal-tabs">
+              <button class="portal-tab-btn active" id="fast-tab-btn-1" onclick="switchFastScreenshot(1)">
+                <span>⚡ 01. Login Portal</span>
+              </button>
+              <button class="portal-tab-btn" id="fast-tab-btn-2" onclick="switchFastScreenshot(2)">
+                <span>📊 02. Live Dashboard</span>
+              </button>
+              <button class="portal-tab-btn" id="fast-tab-btn-3" onclick="switchFastScreenshot(3)">
+                <span>📄 03. Print Services Hub</span>
+              </button>
+            </div>
+
+            <!-- Browser Mockup Frame with Active Screenshot -->
+            <div class="browser-mockup">
+              <div class="browser-bar">
+                <div class="browser-bar-left">
+                  <div class="terminal-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                  </div>
+                  <div class="browser-url-pill">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span id="fast-browser-url-text">https://fastprint.portal/login (Fast Print Portal)</span>
+                  </div>
+                </div>
+
+                <div class="browser-bar-actions">
+                  <button class="btn-zoom-preview" onclick="openFastLightbox()" aria-label="Open fullscreen screenshot zoom">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>Zoom</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Active Screenshot Viewer Container -->
+              <div class="portal-viewer-container" id="fast-portal-screenshot-viewer">
+                <!-- Slide 1: Login Portal -->
+                <div class="screenshot-slide active" id="fast-screenshot-slide-1" onclick="openFastLightbox()">
+                  <div id="fast-slide-content-1">
+                    <img id="fast-img-1" src="/src/assets/screenshots/fast_print_1.png" alt="Fast Print Portal - Screenshot 1" class="portal-screenshot-img" style="object-fit: contain; width: 100%; max-height: 640px; display: none;" onload="this.style.display='block'; document.getElementById('fast-placeholder-1').style.display='none';" onerror="this.style.display='none'; document.getElementById('fast-placeholder-1').style.display='flex';" />
+                    <div id="fast-placeholder-1" class="fast-upload-dropzone" onclick="event.stopPropagation(); triggerFastUpload(1);">
+                      <div class="dropzone-inner">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color: var(--neon-cyan); margin-bottom: 0.75rem;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem;">Fast Print Portal &bull; Original Screenshot #01</h4>
+                        <p style="font-size: 0.82rem; color: #94a3b8; max-width: 440px; line-height: 1.5; margin-bottom: 0.9rem;">
+                          Aapka uploaded screenshot yahan 100% original aspect ratio mein load hoga. Click karke select karein ya screenshot drag &amp; drop kar dein.
+                        </p>
+                        <span class="btn-dz-select">Select / Drop Screenshot (Original File)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="screenshot-hover-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>Click to Zoom &bull; Fullscreen</span>
+                  </div>
+                </div>
+
+                <!-- Slide 2: Dashboard -->
+                <div class="screenshot-slide" id="fast-screenshot-slide-2" onclick="openFastLightbox()">
+                  <div id="fast-slide-content-2">
+                    <img id="fast-img-2" src="/src/assets/screenshots/fast_print_2.png" alt="Fast Print Portal - Screenshot 2" class="portal-screenshot-img" style="object-fit: contain; width: 100%; max-height: 640px; display: none;" onload="this.style.display='block'; document.getElementById('fast-placeholder-2').style.display='none';" onerror="this.style.display='none'; document.getElementById('fast-placeholder-2').style.display='flex';" />
+                    <div id="fast-placeholder-2" class="fast-upload-dropzone" onclick="event.stopPropagation(); triggerFastUpload(2);">
+                      <div class="dropzone-inner">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color: var(--neon-cyan); margin-bottom: 0.75rem;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem;">Fast Print Portal &bull; Original Screenshot #02</h4>
+                        <p style="font-size: 0.82rem; color: #94a3b8; max-width: 440px; line-height: 1.5; margin-bottom: 0.9rem;">
+                          Live Admin Dashboard screenshot. Click karke select karein ya screenshot drag &amp; drop kar dein.
+                        </p>
+                        <span class="btn-dz-select">Select / Drop Screenshot (Original File)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="screenshot-hover-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>Click to Zoom &bull; Fullscreen</span>
+                  </div>
+                </div>
+
+                <!-- Slide 3: Services -->
+                <div class="screenshot-slide" id="fast-screenshot-slide-3" onclick="openFastLightbox()">
+                  <div id="fast-slide-content-3">
+                    <img id="fast-img-3" src="/src/assets/screenshots/fast_print_3.png" alt="Fast Print Portal - Screenshot 3" class="portal-screenshot-img" style="object-fit: contain; width: 100%; max-height: 640px; display: none;" onload="this.style.display='block'; document.getElementById('fast-placeholder-3').style.display='none';" onerror="this.style.display='none'; document.getElementById('fast-placeholder-3').style.display='flex';" />
+                    <div id="fast-placeholder-3" class="fast-upload-dropzone" onclick="event.stopPropagation(); triggerFastUpload(3);">
+                      <div class="dropzone-inner">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color: var(--neon-cyan); margin-bottom: 0.75rem;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem;">Fast Print Portal &bull; Original Screenshot #03</h4>
+                        <p style="font-size: 0.82rem; color: #94a3b8; max-width: 440px; line-height: 1.5; margin-bottom: 0.9rem;">
+                          Document Print Services Hub screenshot. Click karke select karein ya screenshot drag &amp; drop kar dein.
+                        </p>
+                        <span class="btn-dz-select">Select / Drop Screenshot (Original File)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="screenshot-hover-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                    <span>Click to Zoom &bull; Fullscreen</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons Bar for Fast Print Portal -->
+            <div class="portal-actions-bar">
+              <div>
+                <span style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-muted); display: block;">
+                  Portal Title: <strong style="color: var(--neon-cyan);">Fast Print Portal</strong> (Custom High-Speed Architecture)
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 0.78rem; color: #7f93aa;">
+                  Engineered with dedicated queue isolation &bull; 100% original aspect-ratio rendering
+                </span>
+              </div>
+
+              <div class="portal-action-btns">
+                <button type="button" class="btn-live-demo" onclick="triggerFastUpload(fastActiveScreenshotIndex)" style="cursor: pointer; background: rgba(0, 234, 255, 0.1); border-color: var(--neon-cyan); color: var(--neon-cyan);">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                  <span>Select / Replace Original Screenshot</span>
+                </button>
+                <a href="https://t.me/looterekrish" target="_blank" rel="noopener noreferrer" class="btn-create-portal">
+                  <span>Contact Developer</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Hidden File Input for Fast Print Portal Upload -->
+          <input type="file" id="fast-screenshot-file-input" accept="image/png, image/jpeg, image/webp" style="display: none;" onchange="handleFastScreenshotFile(event)" />
 
           <!-- ==============================================
                SECTION 2: TELEGRAM BOTS
@@ -3826,22 +4084,23 @@
     const yrEl = document.getElementById("current-year");
     if (yrEl) yrEl.textContent = new Date().getFullYear();
 
-    /* 3 Portal Screenshots Meta */
+    /* 3 Dark Print Portal Screenshots Meta */
     const screenshotMeta = {
       1: {
-        url: "https://shivaprint.xyz/login",
-        title: "01. Portal Login Screen (SHIVA PRINT)"
+        url: "https://shivaprint.xyz/login (SHIVA PRINT Portal)",
+        title: "01. SHIVA PRINT • Member Login Portal"
       },
       2: {
-        url: "https://shivaprint.xyz/dashboard (Wallet: 9,980.00)",
-        title: "02. Admin Dashboard Overview (SHIVA PRINT)"
+        url: "https://shivaprint.xyz/dashboard (Admin Metrics)",
+        title: "02. Live Admin Dashboard & Member Management"
       },
       3: {
-        url: "https://shivaprint.xyz/services (e-Shram / Aadhaar PVC)",
-        title: "03. Document Seva & Print Hub (SHIVA PRINT)"
+        url: "https://shivaprint.xyz/services (Document Print Hub)",
+        title: "03. Document Print Services & Processing Queue"
       }
     };
 
+    
     let activeScreenshotIndex = 1;
 
     function switchScreenshot(idx) {
@@ -3885,6 +4144,113 @@
         document.body.style.overflow = "";
       }
     }
+
+    /* Fast Print Portal Controller & Upload Handler */
+    let fastActiveScreenshotIndex = 1;
+    const fastScreenshotMeta = {
+      1: { url: "https://fastprint.portal/login (01. Login Portal)", title: "Fast Print Portal • 01. Login Portal" },
+      2: { url: "https://fastprint.portal/dashboard (02. Admin Dashboard)", title: "Fast Print Portal • 02. Live Dashboard" },
+      3: { url: "https://fastprint.portal/services (03. Document Print Hub)", title: "Fast Print Portal • 03. Print Services Hub" }
+    };
+
+    function switchFastScreenshot(idx) {
+      fastActiveScreenshotIndex = idx;
+      for (let i = 1; i <= 3; i++) {
+        const slide = document.getElementById("fast-screenshot-slide-" + i);
+        const btn = document.getElementById("fast-tab-btn-" + i);
+        if (slide) slide.classList.toggle("active", i === idx);
+        if (btn) btn.classList.toggle("active", i === idx);
+      }
+      const urlEl = document.getElementById("fast-browser-url-text");
+      if (urlEl && fastScreenshotMeta[idx]) {
+        urlEl.textContent = fastScreenshotMeta[idx].url;
+      }
+    }
+
+    function openFastLightbox() {
+      const modal = document.getElementById("lightbox-modal");
+      const modalBody = document.getElementById("lightbox-body");
+      const modalTitle = document.getElementById("lightbox-title");
+      const activeSlide = document.getElementById("fast-screenshot-slide-" + fastActiveScreenshotIndex);
+
+      if (modal && modalBody && activeSlide) {
+        modalBody.innerHTML = activeSlide.innerHTML;
+        const hoverBadge = modalBody.querySelector(".screenshot-hover-badge");
+        if (hoverBadge) hoverBadge.style.display = "none";
+        if (modalTitle && fastScreenshotMeta[fastActiveScreenshotIndex]) {
+          modalTitle.textContent = fastScreenshotMeta[fastActiveScreenshotIndex].title;
+        }
+        modal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    let uploadTargetIndex = 1;
+    function triggerFastUpload(idx) {
+      uploadTargetIndex = idx || fastActiveScreenshotIndex;
+      const input = document.getElementById("fast-screenshot-file-input");
+      if (input) {
+        input.value = "";
+        input.click();
+      }
+    }
+
+    async function handleFastScreenshotFile(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+
+      const targetFilename = `fast_print_${uploadTargetIndex}.png`;
+      const reader = new FileReader();
+      reader.onload = async function(e) {
+        const base64Data = e.target.result;
+        try {
+          const resp = await fetch("/api/upload-screenshot", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ filename: targetFilename, data: base64Data })
+          });
+          const res = await resp.json();
+          if (res.success) {
+            const img = document.getElementById(`fast-img-${uploadTargetIndex}`);
+            const ph = document.getElementById(`fast-placeholder-${uploadTargetIndex}`);
+            if (img) {
+              img.src = res.url + "?t=" + Date.now();
+              img.style.display = "block";
+            }
+            if (ph) ph.style.display = "none";
+          }
+        } catch (err) {
+          console.warn("Server upload fallback to direct preview:", err);
+          const img = document.getElementById(`fast-img-${uploadTargetIndex}`);
+          const ph = document.getElementById(`fast-placeholder-${uploadTargetIndex}`);
+          if (img) {
+            img.src = base64Data;
+            img.style.display = "block";
+          }
+          if (ph) ph.style.display = "none";
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Drag-and-drop support for dropzones
+    window.addEventListener("DOMContentLoaded", function() {
+      [1, 2, 3].forEach(function(i) {
+        const dz = document.getElementById("fast-placeholder-" + i);
+        if (dz) {
+          dz.addEventListener("dragover", function(e) { e.preventDefault(); dz.classList.add("dragover"); });
+          dz.addEventListener("dragleave", function(e) { e.preventDefault(); dz.classList.remove("dragover"); });
+          dz.addEventListener("drop", function(e) {
+            e.preventDefault();
+            dz.classList.remove("dragover");
+            if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+              uploadTargetIndex = i;
+              handleFastScreenshotFile({ target: { files: e.dataTransfer.files } });
+            }
+          });
+        }
+      });
+    });
 
     function closeLightboxOnBackdrop(e) {
       if (e.target && e.target.id === "lightbox-modal") {
