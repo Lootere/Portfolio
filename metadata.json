@@ -1,0 +1,6 @@
+{
+  "name": "LOOTERE — Animated 3D Developer Portfolio",
+  "description": "Futuristic, cyberpunk developer portfolio for LOOTERE featuring interactive 3D animated character, holographic HUD panels, orbit rings, floating crystals, and canvas particle system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

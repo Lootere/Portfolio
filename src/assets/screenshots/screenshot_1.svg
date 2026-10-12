@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 620" width="1280" height="620" style="background: linear-gradient(135deg, #eef1fc 0%, #e6ebff 50%, #d8e1fa 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <!-- Header -->
+  <rect x="0" y="0" width="1280" height="65" fill="#ffffff" opacity="0.9"/>
+  <g transform="translate(50, 18)">
+    <circle cx="14" cy="14" r="14" fill="#e0edff" stroke="#3b82f6" stroke-width="1.5"/>
+    <path d="M8 14h12M14 8v12" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+    <text x="38" y="20" font-size="18" font-weight="800" fill="#111827" letter-spacing="0.05em">SHIVA PRINT</text>
+  </g>
+  <g transform="translate(780, 20)" font-size="14" font-weight="500" fill="#4b5563">
+    <rect x="0" y="-5" width="65" height="32" rx="16" fill="#4f46e5" opacity="0.15"/>
+    <text x="14" y="16" fill="#4338ca" font-weight="600">Home</text>
+    <text x="95" y="16">Register</text>
+    <text x="180" y="16">Forgot Password</text>
+    <text x="320" y="16">Contact</text>
+  </g>
+
+  <!-- Login Card -->
+  <g transform="translate(460, 95)">
+    <rect x="0" y="0" width="360" height="460" rx="20" fill="#ffffff" filter="drop-shadow(0 20px 30px rgba(0,0,0,0.12))"/>
+    
+    <!-- Top Gradient Header -->
+    <path d="M0 20 Q0 0 20 0 L340 0 Q360 0 360 20 L360 130 L0 130 Z" fill="url(#loginGrad)"/>
+    <text x="180" y="65" text-anchor="middle" font-size="24" font-weight="800" fill="#ffffff">Welcome Back</text>
+    <text x="180" y="92" text-anchor="middle" font-size="13" fill="#e0e7ff" opacity="0.9">Sign in to access your account</text>
+
+    <!-- Inputs -->
+    <text x="24" y="165" font-size="13" font-weight="600" fill="#374151">Email or Phone *</text>
+    <rect x="24" y="175" width="312" height="42" rx="8" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
+    <text x="36" y="202" font-size="14" fill="#1f2937" font-weight="500">1234567890</text>
+
+    <text x="24" y="242" font-size="13" font-weight="600" fill="#374151">Password *</text>
+    <rect x="24" y="252" width="312" height="42" rx="8" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
+    <text x="36" y="278" font-size="16" fill="#1f2937" letter-spacing="0.2em">••••••••••</text>
+    <circle cx="316" cy="273" r="5" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+
+    <!-- Remember & Forgot -->
+    <rect x="24" y="312" width="14" height="14" rx="3" fill="#2563eb"/>
+    <path d="M27 319l3 3 5-6" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    <text x="45" y="324" font-size="12" fill="#4b5563">Remember me</text>
+    <text x="336" y="324" text-anchor="end" font-size="12" fill="#4f46e5" font-weight="500">Forgot Password?</text>
+
+    <!-- Sign In Button -->
+    <rect x="24" y="348" width="312" height="44" rx="8" fill="url(#btnGrad)"/>
+    <text x="180" y="375" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">&#128274; Sign In</text>
+
+    <!-- Footer link -->
+    <text x="180" y="422" text-anchor="middle" font-size="12" fill="#6b7280">Don't have an account? <tspan fill="#4f46e5" font-weight="600">Sign up here</tspan></text>
+  </g>
+
+  <!-- Bottom copyright -->
+  <text x="640" y="592" text-anchor="middle" font-size="12" fill="#6b7280">&#169; 2026 SHIVAPRINT.XYZ. All rights reserved.</text>
+
+  <defs>
+    <linearGradient id="loginGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="btnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+</svg>
